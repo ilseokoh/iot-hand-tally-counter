@@ -31,7 +31,7 @@
     "Telemetry": [
         {
             "Interval": "00:00:05",
-            "MessageTemplate": "{\"counts\":[{\"timeStamp\": \"${timeStamp}\", \"count\": ${count}}]}",
+            "MessageTemplate": "{\"counts\": ${counts}, \"correlationId\": \"${correlationId}\" }",
             "MessageSchema": {
                 "Name": "iot-hand-tally-counter;v1",
                 "Format": "JSON",

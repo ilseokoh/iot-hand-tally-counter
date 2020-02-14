@@ -1,3 +1,11 @@
+// Default state
+var state = {
+    counts: [
+        { "timeStamp": "2015-03-25T12:00:00Z", "count": 6 }
+    ],
+    "correlationId": "62c3bcb3-68a2-4fc5-9d07-0866916832dd"
+};
+
 /**
  * Entry point function called by the simulation engine.
  * Returns updated simulation state.
