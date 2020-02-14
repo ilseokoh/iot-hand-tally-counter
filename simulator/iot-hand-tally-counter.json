@@ -1,0 +1,58 @@
+{
+    "SchemaVersion": "1.0.0",
+    "Id": "iot-hand-tally-counter",
+    "Version": "1.0.0",
+    "Name": "IoT hand tally counter",
+    "Description": "IoT hand tally counter is a new type of tally counter using Azure IoT technologies.",
+    "Protocol": "MQTT",
+    "Simulation": {
+        "InitialState": {},
+        "Interval": "00:00:05",
+        "Scripts": [
+            {
+                "Type": "JavaScript",
+                "Path": "iot-hand-tally-counter-state.js"
+            }
+        ]
+    },
+    "Properties": {
+        "type": "Rebutton",
+        "firmware": "1.0.0",
+        "model": "iot-hand-tally-counter-01",
+        "totalCount": 0,
+        "batteryVoltage": 2.59,
+        "initialState": true,
+        "wifiPassPhase": "", 
+        "wifiSSID": ""
+    },
+    "Tags": {
+        "venue": "COEX 2F conf room #1"
+    },
+    "Telemetry": [
+        {
+            "Interval": "00:00:05",
+            "MessageTemplate": "{\"counts\":[{\"timeStamp\": \"${timeStamp}\", \"count\": ${count}}]}",
+            "MessageSchema": {
+                "Name": "iot-hand-tally-counter;v1",
+                "Format": "JSON",
+                "Fields": {
+                    "counts": "array"
+                }
+            }
+        }
+    ],
+    "CloudToDeviceMethods": {
+        "Reset": {
+            "Type": "JavaScript",
+            "Path": "reset-method.js"
+        },
+        "SetTimeServer": {
+            "Type": "JavaScript",
+            "Path": "settimeserver-method.js"
+        },
+        "SetupWiFi": {
+            "Type": "JavaScript",
+            "Path": "setupwifi-method.js"
+        }
+    }
+}
