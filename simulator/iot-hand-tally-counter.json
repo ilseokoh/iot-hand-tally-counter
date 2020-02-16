@@ -4,14 +4,18 @@
     "Version": "1.0.0",
     "Name": "IoT hand tally counter",
     "Description": "IoT hand tally counter is a new type of tally counter using Azure IoT technologies.",
-    "Protocol": "MQTT",
+    "Protocol": "AMQP",
     "Simulation": {
-        "InitialState": {},
+        "InitialState": {
+            "timestamp": "2015-03-25T12:00:00Z", 
+            "count": 0,
+            "correlationId": "62c3bcb3-68a2-4fc5-9d07-0866916832dd"
+        },
         "Interval": "00:00:01",
         "Scripts": [
             {
-                "Type": "JavaScript",
-                "Path": "iot-hand-tally-counter-state.js"
+                "Type": "javascript",
+                "Path": "iot-counter-state.js"
             }
         ]
     },
@@ -31,30 +35,19 @@
     "Telemetry": [
         {
             "Interval": "00:00:01",
-            "MessageTemplate": "{\"timestamp\": \"${timestamp}\", \"count\": ${count}, \"correlationId\": \"${correlationId}\" }",
+            "MessageTemplate": "{\"timestamp\":\"${timestamp}\",\"count\": ${count},\"correlationId\":\"${correlationId}\"}",
             "MessageSchema": {
                 "Name": "iot-hand-tally-counter;v1",
                 "Format": "JSON",
                 "Fields": {
-                    "timestamp": "text",
-                    "count": "int",
-                    "correlationId": "text"
+                    "timestamp": "Text",
+                    "count": "Integer",
+                    "correlationId": "Text"
                 }
             }
         }
     ],
     "CloudToDeviceMethods": {
-        "Reset": {
-            "Type": "JavaScript",
-            "Path": "reset-method.js"
-        },
-        "SetTimeServer": {
-            "Type": "JavaScript",
-            "Path": "settimeserver-method.js"
-        },
-        "SetupWiFi": {
-            "Type": "JavaScript",
-            "Path": "setupwifi-method.js"
-        }
+        
     }
 }

@@ -22,5 +22,5 @@ function main(context, previousState, previousProperties) {
     // time or device details.
     // Execute some logic, updating 'state'
 
-    return state;
+    updateState(state);
 }

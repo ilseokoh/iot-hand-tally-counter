@@ -1,3 +1,8 @@
+/*global log*/
+/*global updateState*/
+/*global updateProperty*/
+/*jslint node: true*/
+
 "use strict";
 
 // Default state
@@ -8,7 +13,16 @@ var state = {
 };
 
 // Default device properties
-var properties = {};
+var properties = {
+    "type": "Rebutton",
+    "firmware": "1.0.0",
+    "model": "iot-hand-tally-counter-01",
+    "totalCount": 0,
+    "batteryVoltage": 2.59,
+    "initialState": false,
+    "wifiPassPhase": "",
+    "wifiSSID": ""
+};
 
 /**
  * Restore the global state using data from the previous iteration.
@@ -59,17 +73,23 @@ function main(context, previousState, previousProperties) {
 
     // update random count (1-10)
     state.count = Math.floor(Math.random() * 10) + 1;
+
+    log("random count: " + state.count);
+
+    // update total count
+    properties.totalCount = previousProperties.totalCount + state.count;
+
+    log("total count: " + properties.totalCount);
+
     // update timestamp now
-    var now = new Date();
-    state.timestamp = now.toISOString();
+    state.timestamp = context.currentTime;
 
     // update corellation id 
     state.correlationId = uuidv4();
 
-    return state;
+    log("new correlationId" + state.correlationId);
+
+    updateProperty(properties);
+
+    updateState(state);
 }
-
-
-// for debug
-// var result = main(null, state, properties);
-// console.log(result);

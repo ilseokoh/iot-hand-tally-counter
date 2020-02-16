@@ -2,9 +2,9 @@
 // Default state
 // Default state
 var state = {
-	"timestamp": "2015-03-25T12:00:00Z", 
+	"timestamp": "2020-03-25T12:00:00Z", 
 	"count": 6,
-	"correlationId": "62c3bcb3-68a2-4fc5-9d07-0866916832dd"
+	"correlationId": "123234-68a2-4fc5-9d07-0866916832dd"
 };
 
 
@@ -23,5 +23,5 @@ function main(context, previousState, previousProperties) {
     // time or device details.
     // Execute some logic, updating 'state'
 
-    return state;
+    updateState(state);
 }
