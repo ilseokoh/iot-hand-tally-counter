@@ -2,7 +2,7 @@
 // Default state
 // Default state
 var state = {
-	"timeStamp": "2015-03-25T12:00:00Z", 
+	"timestamp": "2015-03-25T12:00:00Z", 
 	"count": 6,
 	"correlationId": "62c3bcb3-68a2-4fc5-9d07-0866916832dd"
 };
