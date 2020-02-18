@@ -1,53 +1,45 @@
 {
     "SchemaVersion": "1.0.0",
-    "Id": "iot-hand-tally-counter",
-    "Version": "1.0.0",
+    "Id": "iot-hand-counter-01",
+    "Version": "0.0.1",
     "Name": "IoT hand tally counter",
-    "Description": "IoT hand tally counter is a new type of tally counter using Azure IoT technologies.",
+    "Description": "",
     "Protocol": "AMQP",
     "Simulation": {
         "InitialState": {
-            "timestamp": "2015-03-25T12:00:00Z", 
-            "count": 0,
-            "correlationId": "62c3bcb3-68a2-4fc5-9d07-0866916832dd"
+            "hit": 0,
+            "hitTime": ""
         },
-        "Interval": "00:00:01",
+        "Interval": "00:00:10",
         "Scripts": [
             {
-                "Type": "javascript",
-                "Path": "iot-counter-state.js"
+            "Type": "javascript",
+            "Path": "iot-counter-state.js"
             }
         ]
     },
     "Properties": {
-        "type": "Rebutton",
-        "firmware": "1.0.0",
-        "model": "iot-hand-tally-counter-01",
-        "totalCount": 0,
-        "batteryVoltage": 2.59,
-        "initialState": true,
-        "wifiPassPhase": "", 
-        "wifiSSID": ""
-    },
-    "Tags": {
-        "venue": "COEX 2F conf room #1"
+        "Type": "Rebutton",
+        "ResetTime": "",
+        "TotalCount": 0
     },
     "Telemetry": [
         {
-            "Interval": "00:00:01",
-            "MessageTemplate": "{\"timestamp\":\"${timestamp}\",\"count\": ${count},\"correlationId\":\"${correlationId}\"}",
+            "Interval": "00:00:10",
+            "MessageTemplate": "{\"hit\":${hit}, \"hitTime\": \"${hitTime}\"}",
             "MessageSchema": {
-                "Name": "iot-hand-tally-counter;v1",
+                "Name": "iot-hand-counter;v1",
                 "Format": "JSON",
                 "Fields": {
-                    "timestamp": "Text",
-                    "count": "Integer",
-                    "correlationId": "Text"
+                    "hit": "integer"
                 }
             }
         }
     ],
     "CloudToDeviceMethods": {
-        
+        "ResetCount": {
+            "Type": "javascript",
+            "Path": "reset-method.js"
+        }
     }
 }
