@@ -3,7 +3,7 @@
     "Id": "iot-hand-counter-01",
     "Version": "0.0.1",
     "Name": "IoT hand tally counter",
-    "Description": "",
+    "Description": "IoT hand tally counter is a new type of tally counter using Azure IoT technologies.",
     "Protocol": "AMQP",
     "Simulation": {
         "InitialState": {
