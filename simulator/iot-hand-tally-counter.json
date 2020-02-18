@@ -1,58 +1,45 @@
 {
     "SchemaVersion": "1.0.0",
-    "Id": "iot-hand-tally-counter",
-    "Version": "1.0.0",
+    "Id": "iot-hand-counter-01",
+    "Version": "0.0.1",
     "Name": "IoT hand tally counter",
     "Description": "IoT hand tally counter is a new type of tally counter using Azure IoT technologies.",
-    "Protocol": "MQTT",
+    "Protocol": "AMQP",
     "Simulation": {
-        "InitialState": {},
-        "Interval": "00:00:05",
+        "InitialState": {
+            "hit": 0,
+            "hitTime": ""
+        },
+        "Interval": "00:00:10",
         "Scripts": [
             {
-                "Type": "JavaScript",
-                "Path": "iot-hand-tally-counter-state.js"
+            "Type": "javascript",
+            "Path": "iot-counter-state.js"
             }
         ]
     },
     "Properties": {
-        "type": "Rebutton",
-        "firmware": "1.0.0",
-        "model": "iot-hand-tally-counter-01",
-        "totalCount": 0,
-        "batteryVoltage": 2.59,
-        "initialState": true,
-        "wifiPassPhase": "", 
-        "wifiSSID": ""
-    },
-    "Tags": {
-        "venue": "COEX 2F conf room #1"
+        "Type": "Rebutton",
+        "ResetTime": "",
+        "TotalCount": 0
     },
     "Telemetry": [
         {
-            "Interval": "00:00:05",
-            "MessageTemplate": "{\"counts\":[{\"timeStamp\": \"${timeStamp}\", \"count\": ${count}}]}",
+            "Interval": "00:00:10",
+            "MessageTemplate": "{\"hit\":${hit}, \"hitTime\": \"${hitTime}\"}",
             "MessageSchema": {
-                "Name": "iot-hand-tally-counter;v1",
+                "Name": "iot-hand-counter;v1",
                 "Format": "JSON",
                 "Fields": {
-                    "counts": "array"
+                    "hit": "integer"
                 }
             }
         }
     ],
     "CloudToDeviceMethods": {
-        "Reset": {
-            "Type": "JavaScript",
+        "ResetCount": {
+            "Type": "javascript",
             "Path": "reset-method.js"
-        },
-        "SetTimeServer": {
-            "Type": "JavaScript",
-            "Path": "settimeserver-method.js"
-        },
-        "SetupWiFi": {
-            "Type": "JavaScript",
-            "Path": "setupwifi-method.js"
         }
     }
 }
