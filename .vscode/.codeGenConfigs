@@ -1,0 +1,24 @@
+{
+    "codeGenExecutionItems": [
+        {
+            "outputDirectory": "c:\\Users\\iloh\\source\\iot-hand-tally-counter\\rebutton-counter",
+            "capabilityModelFilePath": "c:\\Users\\iloh\\source\\iot-hand-tally-counter\\device\\devicemodel\\IoTHandTallyCounterModel.capabilitymodel.json",
+            "interfaceDirecoty": "c:\\Users\\iloh\\source\\iot-hand-tally-counter",
+            "projectName": "rebutton-counter",
+            "languageLabel": "ANSI C",
+            "codeGenProjectType": "IoTDevKit",
+            "deviceSdkReferenceType": "DevKitSDK",
+            "deviceConnectionType": "DpsSasKey"
+        },
+        {
+            "outputDirectory": "c:\\Users\\iloh\\source\\iot-hand-tally-counter\\device",
+            "capabilityModelFilePath": "c:\\Users\\iloh\\source\\iot-hand-tally-counter\\devicemodel\\IoTHandTallyCounterModel.capabilitymodel.json",
+            "interfaceDirecoty": "c:\\Users\\iloh\\source\\iot-hand-tally-counter",
+            "projectName": "device",
+            "languageLabel": "ANSI C",
+            "codeGenProjectType": "IoTDevKit",
+            "deviceSdkReferenceType": "DevKitSDK",
+            "deviceConnectionType": "DpsSasKey"
+        }
+    ]
+}

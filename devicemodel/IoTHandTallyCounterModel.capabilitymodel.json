@@ -1,0 +1,16 @@
+{
+  "@id": "urn:ilseokoh:IoTHandTallyCounterModel:1",
+  "@type": "CapabilityModel",
+  "displayName": "IoT hand tally counter",
+  "implements": [
+    {
+      "schema": "urn:ilseokoh:Counter:1",
+      "name": "counter"
+    },
+    {
+      "schema": "urn:azureiot:DeviceManagement:DeviceInformation:1",
+      "name": "deviceinfo"
+    }
+  ],
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
+}

@@ -1,0 +1,6 @@
+{
+    "files.exclude": {
+        ".iotworkbenchproject": true,
+        ".build": true
+    }
+}

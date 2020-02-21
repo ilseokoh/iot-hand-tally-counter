@@ -1,0 +1,81 @@
+{
+  "@id": "urn:ilseokoh:Counter:1",
+  "@type": "Interface",
+  "displayName": "Provide functionality to report count value and timestamp.",
+  "contents": [
+    {
+      "@type": "Property",
+      "displayName": "Type",
+      "description": "Counter hardware type.",
+      "name": "Type",
+      "schema": "string",
+      "writable": false
+    },
+    {
+      "@type": "Property",
+      "name": "ResetTime",
+      "displayName": "The time receive reset command.",
+      "writable": false,
+      "schema": "dateTime"
+    },
+    {
+      "@type": "Property",
+      "name": "TotalCount",
+      "displayName": "Total count value after reset",
+      "writable": false,
+      "schema": "integer"
+    },
+    {
+      "@type": "Property",
+      "name": "Interval",
+      "displayName": "Interver between telemtry by second",
+      "writable": true,
+      "schema": "integer"
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "SemanticType/hitCount"
+      ],
+      "comment": "Count value by click the button between interval",
+      "name": "hitCount",
+      "displayName": "Hit Count",
+      "schema": {
+        "@type": "Object",
+        "fields": [
+          {
+            "name": "hit",
+            "schema": "integer"
+          },
+          {
+            "name": "hitTime",
+            "schema": "dateTime"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Command",
+      "description": "Reset the saved total count",
+      "name": "ResetCount",
+      "commandType": "synchronous",
+      "response": {
+        "name": "ResetResponse",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "LastCountTime",
+              "schema": "dateTime"
+            },
+            {
+              "name": "LastCount",
+              "schema": "integer"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
+}
